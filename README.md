@@ -1,2 +1,2 @@
 # EISPINN
-First attempts at creating a PINN to obtain EIS results
+Creating a PINN to obtain EIS results
