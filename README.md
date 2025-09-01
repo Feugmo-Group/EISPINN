@@ -2,7 +2,8 @@
 
 This repository contains a Jupyter Notebook implementing a Physics-Informed Neural Network (PINN) to model the alkaline Oxygen Evolution Reaction (OER). The PINN leverages Neural Tangent Kernel (NTK) weighting to adaptively balance the loss terms, improving convergence and accuracy in solving the governing partial differential equations.
 
-# Repo Structure
+## Repo Structure
+```
 ├── NTKRYU.ipynb   # Main Jupyter notebook implementation
 ├── conf/
 │   ├── config.yaml
@@ -18,10 +19,11 @@ This repository contains a Jupyter Notebook implementing a Physics-Informed Neur
 ├── .gitignore
 ├── LICENSE
 └── README.md            # Project description
+```
 
-Prerequisites:
-  Python 3.9+
-  Jupyter Notebook
-  Dependencies:
-    pip install torch numpy matplotlib hydra-core
-
+### Prerequisites
+- Python 3.9+
+- Jupyter Notebook  
+- Dependencies:  
+  ```bash
+  pip install torch numpy matplotlib hydra-core
