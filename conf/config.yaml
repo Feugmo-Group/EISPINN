@@ -1,0 +1,92 @@
+# Arch settings
+arch:
+  fully_connected:
+    #Architecture for all networks
+    layer_size: 20
+    hidden_layers: 5
+  potential:
+    layer_size: 20
+    hidden_layers: 5
+  CK:
+    layer_size: 20
+    hidden_layers: 5
+  CO:
+    layer_size: 20
+    hidden_layers: 5
+  COH:
+    layer_size: 20
+    hidden_layers: 5
+
+
+#Optimizer Settings
+optimizer:
+  adam:
+    lr: 1.0e-3
+    betas: [0.9, 0.999]
+    eps: 1.0e-8
+    weight_decay: 1e-2
+    amsgrad: False
+networks:
+  type: "FFN"
+  initialize: True  # Initialize weights
+
+# Learning rate scheduler
+scheduler:
+  type: "None"
+  tf_exponential_lr:
+    decay_rate: 0.99
+    decay_steps: 15000
+  RLROP:
+    factor: 0.5
+    patience: 1000
+    threshold: 1e-4
+    min_lr: 1e-8
+
+# Training settings
+training:
+  max_steps: 20000
+  rec_results_freq: 100
+  rec_inference_freq: 1000
+  save_network_freq: 1000
+
+# Batch sizes for different constraints
+batch_size:
+  BC: 1024 # Boundary points per boundary
+  interior: 2048 # Interior points
+  inference: 1024 # Points for inference/visualization
+  IC: 1024
+
+# Custom PDE parameters
+pde:
+  scales:
+    lc: 1 #UUHH
+    cc: 1 #UUH
+  physics:
+    #physical constants
+    F: 96485 # Faraday Constant [C/mol]
+    R: 8.3145 # Gas Constant [J/(mol*K)]
+    T: 298 # K
+    k_B: 1.3806e-23 # Boltzmann constant [J/K]
+    eps0: 8.85e-12 # Vaccuum Permitivitty
+    E_min: 43.5 ##SUBJECT TO CHANGE
+    E_max: 67.5 ## SUBJECT TO CHANGE
+    #Diffusion Coefficients
+    D_K: 1 #CHANGE
+    D_O: 1 #CHANGE
+    D_OH: 1 #CHANGE
+
+    #Species charges
+    z_K: 1
+    z_O: 0
+    z_OH: -1
+
+    #permitivitties [F/m]
+    eps_DDL: 1.239e-10 # 2* eps0
+    eps_dl: 6.947e-10 # 78.5 eps0
+    eps_sol: 6.947e-10
+
+    #Rate Constants
+    k_OER: 1 #CHANGE
+
+    #Equilibrium Potentials
+    phi_eq: 1 #CHANGE
